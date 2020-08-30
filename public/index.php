@@ -2,10 +2,7 @@
 include '../vendor/autoloader.php';
 use Prices\SpeakerPrices as Speakers;
 use Payment\PaymentProcess\Process;
-use Payment\PaymentMethod\Paypal;
-use Payment\PaymentMethod\Bank;
-use Payment\PaymentMethod\Cash;
-use Payment\PaymentMethod\Visa;
+use Payment\PaymentMethod\{Paypal, Bank, Cash, Visa};
 ?>
 
 <!DOCTYPE html>
