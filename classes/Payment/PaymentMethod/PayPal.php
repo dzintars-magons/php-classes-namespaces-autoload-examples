@@ -3,10 +3,12 @@
 namespace Payment\PaymentMethod;
  
 use PaymentInterface;
+use LoginInterface;
 
+require_once '/var/www/php-29aug-2020/classes/Payment/PaymentProcess/LoginInterface.php';
 require_once '/var/www/php-29aug-2020/classes/Payment/PaymentProcess/PaymentInterface.php';
 
-class Paypal implements PaymentInterface
+class Paypal implements LoginInterface, PaymentInterface
 {
     public function loginFirst()
     {
