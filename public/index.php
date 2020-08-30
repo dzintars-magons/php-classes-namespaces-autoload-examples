@@ -1,7 +1,11 @@
 <?php
 include '../vendor/autoloader.php';
 use Prices\SpeakerPrices as Speakers;
+use Payment\PaymentMethod\Paypal;
+use Payment\PaymentMethod\Bank;
+use Payment\PaymentProcess\Process;
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +20,6 @@ use Prices\SpeakerPrices as Speakers;
 
     echo "<h2>JBL SPEAKERS</h2>";
     $jbl = new Speakers(555, 999, 1500);
-    echo "Our lowest price for JBL speakers is " . $jbl->low . ".";
-    echo "<br>";
-    echo "Our medium price for JBL speakers is " . $jbl->medium . ".";
-    echo "<br>";
-    echo "Our highest price for JBL speakers is " . $jbl->high . ".";
-    echo "<h2>I can do these things with functions</h2>";
     echo "Our lowest price for JBL speakers is " . $jbl->getLow() . ".";
     echo "<br>";
     echo "Our medium price for JBL speakers is " . $jbl->getMedium() . ".";
@@ -47,7 +45,20 @@ use Prices\SpeakerPrices as Speakers;
     echo "Our medium price for used speakers is " . $used->getMedium() . ".";
     echo "<br>";
     echo "Our highest price for used speakers is " . $used->getHigh() . ".";
+    echo "<br>";
+    echo "<br>";
 
+    // $buy = new Process;
+    $process = new Process;
+    $paypal = new Paypal;
+    echo "<h2>Your Pay Option</h2>";
+    // echo $buy->pay() . $paypal->payNow();
+    echo $process->pay();
+    echo $paypal->payNow();
+    // not
+    $bank = new Bank;
+    echo "<br>";
+    echo "Not with " . $bank->payNow();
     ?>
 </body>
 </html>

@@ -15,15 +15,18 @@ class SpeakerPrices
         $this->high = $high;
     }
 
-    function getLow() {
+    function getLow() 
+    {
         return $this->low;
     }
 
-    function getMedium() {
+    function getMedium() 
+    {
         return $this->medium;
     }
 
-    function getHigh() {
+    function getHigh() 
+    {
         return $this->high;
     }
 }
