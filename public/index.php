@@ -3,6 +3,7 @@ include '../vendor/autoloader.php';
 use Prices\SpeakerPrices as Speakers;
 use Payment\PaymentProcess\Process as BuyProcess;
 use Payment\PaymentMethod\{Paypal, Bank, Cash, Visa};
+use Payment\PaymentMethod\TestMethod as Test;
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +62,12 @@ use Payment\PaymentMethod\{Paypal, Bank, Cash, Visa};
     echo $process->pay($cash);
     echo "<br>";
     echo $process->pay($visa);
+    echo "<br>";
+    echo "<br>";
+    echo "<h2>Testing using an Abstract class below</h2>";
+    // test below
+    $test = new Test;
+    echo $test->payNow();
     ?>
 </body>
 </html>
