@@ -8,7 +8,7 @@ class Process
 {
     public function pay(PaymentInterface $paymentType)
     {
-         return "Buying with: " . $paymentType->payNow();
+         return $paymentType->paymentProcess();
     }
 }
 

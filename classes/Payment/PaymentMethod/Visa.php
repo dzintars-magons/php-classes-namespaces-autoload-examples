@@ -8,7 +8,13 @@ require_once '/var/www/php-29aug-2020/classes/Payment/PaymentProcess/PaymentInte
 
 class Visa implements PaymentInterface
 {
-    public function payNow() {
+    public function payNow() 
+    {
         return "Visa";
+    }
+
+    public function paymentProcess()
+    {
+        return "Just buying with " . $this->payNow();
     }
 }

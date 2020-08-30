@@ -8,7 +8,14 @@ require_once '/var/www/php-29aug-2020/classes/Payment/PaymentProcess/PaymentInte
 
 class Cash implements PaymentInterface
 {
-    public function payNow() {
+
+    public function payNow() 
+    {
         return "Cash";
+    }
+
+    public function paymentProcess()
+    {
+        return "Just buying with " . $this->payNow();
     }
 }
