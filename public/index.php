@@ -1,7 +1,7 @@
 <?php
 include '../vendor/autoloader.php';
 use Prices\SpeakerPrices as Speakers;
-use Payment\PaymentProcess\Process;
+use Payment\PaymentProcess\Process as BuyProcess;
 use Payment\PaymentMethod\{Paypal, Bank, Cash, Visa};
 ?>
 
@@ -48,7 +48,7 @@ use Payment\PaymentMethod\{Paypal, Bank, Cash, Visa};
     echo "<br>";
 
     // $buy = new Process;
-    $process = new Process;
+    $process = new BuyProcess;
     $paypal = new Paypal;
     $bank = new Bank;
     $cash = new Cash;
