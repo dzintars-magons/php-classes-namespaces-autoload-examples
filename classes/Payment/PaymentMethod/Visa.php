@@ -2,7 +2,13 @@
 
 namespace Payment\PaymentMethod;
 
-class Visa
+use PaymentInterface;
+
+require_once '/var/www/php-29aug-2020/classes/Payment/PaymentProcess/PaymentInterface.php';
+
+class Visa implements PaymentInterface
 {
-    public function payNow() {}
+    public function payNow() {
+        return "Visa";
+    }
 }

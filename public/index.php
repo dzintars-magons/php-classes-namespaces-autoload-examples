@@ -1,9 +1,11 @@
 <?php
 include '../vendor/autoloader.php';
 use Prices\SpeakerPrices as Speakers;
+use Payment\PaymentProcess\Process;
 use Payment\PaymentMethod\Paypal;
 use Payment\PaymentMethod\Bank;
-use Payment\PaymentProcess\Process;
+use Payment\PaymentMethod\Cash;
+use Payment\PaymentMethod\Visa;
 ?>
 
 <!DOCTYPE html>
@@ -51,14 +53,17 @@ use Payment\PaymentProcess\Process;
     // $buy = new Process;
     $process = new Process;
     $paypal = new Paypal;
-    echo "<h2>Your Pay Option</h2>";
-    // echo $buy->pay() . $paypal->payNow();
-    echo $process->pay();
-    echo $paypal->payNow();
-    // not
     $bank = new Bank;
+    $cash = new Cash;
+    $visa = new Visa;
+    echo "<h2>Your Pay Option</h2>";
+    echo $process->pay($paypal);
     echo "<br>";
-    echo "Not with " . $bank->payNow();
+    echo $process->pay($bank);
+    echo "<br>";
+    echo $process->pay($cash);
+    echo "<br>";
+    echo $process->pay($visa);
     ?>
 </body>
 </html>
