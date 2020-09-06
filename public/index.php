@@ -4,6 +4,7 @@ use Prices\SpeakerPrices as Speakers;
 use Payment\PaymentProcess\Process as BuyProcess;
 use Payment\PaymentMethod\{Paypal, Bank, Cash, Visa};
 use Payment\PaymentMethod\TestMethod as Test;
+use Database\Database;
 ?>
 
 <!DOCTYPE html>
@@ -17,6 +18,46 @@ use Payment\PaymentMethod\TestMethod as Test;
 <body>
    <h1>HELLO</h1>
     <?php
+
+    // $newconn = new Database;
+    // $newconn->connectToDatabase();
+
+    echo "<h1>CREATING WORDS</h1>";
+
+    echo 
+    "<form method='post' action='/'>
+        <input type='text' name='word-1' id='word-1'>
+        <input type='text' name='word-2' id='word-2'>
+        <input type='text' name='word-3' id='word-3'>
+        <button type='submit' name='word-submit' value='Submit'>SAVE NEW WORDS</button>
+        <br>
+        <button type='submit' name='clean' value='clean'>CLEAN WORDS</button>
+    </form>";
+    if ($_POST['word-submit'] == "Submit") {
+        
+            $newpost = new Database;
+            $newpost->addWords();
+            $newpost->clean(); 
+        
+    }
+    // $newconn->addWords();
+
+    echo "<h1>TEST YOUR KNOWLEDGE</h1>
+            <br> 
+            <form method='get' action='/'>
+                <input type='text' name='word-1' id='word-1' placeholder='break'>
+                <input type='text' name='word-2' id='word-2'>
+                <input type='text' name='word-3' id='word-3'>
+                <button type='submit' name='learn' value='learn'>TEST YOURSELF</button>
+            </form>";
+
+            if ($_GET['learn'] == "learn") {
+                
+                $learn = new Database;
+                $learn->search();
+            
+        }
+
 
     echo "<h2>JBL SPEAKERS</h2>";
     $jbl = new Speakers(555, 999, 1500);
